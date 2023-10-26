@@ -6,3 +6,6 @@ Resources
 3. https://tldp.org/LDP/abs/html/comparison-ops.html
 4. https://tldp.org/LDP/abs/html/fto.html
 5. https://www.cyberciti.biz/tips/finding-bash-perl-python-portably-using-env.html
+6. https://tldp.org/LDP/abs/html/internalvariables.html
+7. https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format
+
