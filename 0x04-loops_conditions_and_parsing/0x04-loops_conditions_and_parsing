@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# This script displays numbers from 1 to 20 with specific messages for certain iterations.
+
+count=1
+
+while [ $count -le 20 ]
+do
+    if [ $count -eq 4 ]; then
+        echo "$count"
+        echo "bad luck from China"
+    elif [ $count -eq 9 ]; then
+        echo "$count"
+        echo "bad luck from Japan"
+    elif [ $count -eq 17 ]; then
+        echo "$count"
+        echo "bad luck from Italy"
+    else
+        echo "$count"
+    fi
+
+    ((count++))
+done
+
