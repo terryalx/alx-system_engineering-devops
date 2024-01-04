@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# This contains the script for installing the nginx server
+
+#Installing nginx
+sudo apt update
+sudo apt -y install nginx
+
+#Change ownership of files to be able to edit them.
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chown -R "$USER":"$USER" /usr/share/nginx/html
+
+#Echo into html pages (default and custom error)
+echo 'Hello World!' > /var/www/html/index.html
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
+
+#Reconfigure the default server block for redirection
+new_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com permanent;"
+sudo sed -i "s/server_name _;/$new_string/" /etc/nginx/sites-available/default
+
+#Appending the error config after the above new_string.
+error_config_string="\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\t\troot \/usr\/share\/nginx\/html;\n\t\tinternal;\n\t}"
+sudo sed -i "s/listen 80 default_server;/listen 80 default_server;\n$error_config_string/" /etc/nginx/sites-available/default
+
+#Restore ownership of files to root
+sudo chown -R root:root /var/www/html
+sudo chown -R root:root /usr/share/nginx/html
+
+#Restart nginx
+sudo service nginx restart
