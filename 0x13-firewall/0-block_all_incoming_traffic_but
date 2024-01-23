@@ -2,16 +2,20 @@
 # install ufw firewall & set requirements
 
 # update
-sudo apt-get update
+sudo apt-get -y update
 
 # install UFW if not already installed
-sudo apt-get install ufw
+sudo apt-get -y install ufw
 
 # enable UFW
-sudo ufw enable
+sudo ufw disable
 
 # set default policies
 sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+# system stop ufw
+sudo systemctl stop ufw
 
 # allow specific ports
 sudo ufw allow 22/tcp
