@@ -1,16 +1,9 @@
 #!/usr/bin/python3
-"""
-	Returns to-do list information for an employee
-"""
-
+"""Returns to-do list information for a given employee ID."""
 import json
-
 from urllib import request
-
 import requests
-
 import sys
-
 if __name__ == "__main__":
     u_id = sys.argv[1]
     url = "https://jsonplaceholder.typicode.com/"
