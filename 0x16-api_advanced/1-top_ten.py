@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""Module for task 1"""
+"""task 1"""
 
 
 def top_ten(subreddit):
-    """Queries the Reddit API and returns the top 10 hot posts
+    """Returns the top 10 hot posts on Reddit API
     of the subreddit"""
     import requests
 
@@ -11,6 +11,7 @@ def top_ten(subreddit):
                             .format(subreddit),
                             headers={"User-Agent": "My-User-Agent"},
                             allow_redirects=False)
+                            
     if sub_info.status_code >= 300:
         print('None')
     else:
