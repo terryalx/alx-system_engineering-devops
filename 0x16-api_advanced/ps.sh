@@ -1,3 +1,5 @@
+sudo chmod *
+
 #!/bin/bash
 
 git add .
